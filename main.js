@@ -1,7 +1,14 @@
 var synth = new Tone.PolySynth().toDestination().sync();
 synth.maxPolyphony = 256;
 
+var stop = function () {
+	Tone.Transport.stop().cancel();
+	synth.releaseAll();
+}
+
 var play = function () {
+	stop();
+
 	durations = [
 	  Tone.Time('8t')*2,
 	  Tone.Time('8t'),
@@ -41,17 +48,20 @@ var play = function () {
 	var ST = 1.05946309436;
 
 	// semitone multiplier
-	var n = document.querySelector('#n')/1 || 1;
+	var n = document.querySelector('input#n').value/1 || 0;
+	document.querySelector('input#n').value = n;
 
 	// frequency maximum variation
 	var fr = Math.pow(ST,n);
 
 	// variance index
 	// https://riptutorial.com/javascript/example/8330/random--with-gaussian-distribution
-	var v = 1
+	var v = document.querySelector('input#var').value/1 || 1;
+	document.querySelector('input#var').value = v;
 
 	// number of voices
-	var voices = 15
+	var voices = document.querySelector('input#voices').value/1 || 5;
+	document.querySelector('input#voices').value = voices;
 
 	// simili-gaussian random generator
 	function randomG(vv){
@@ -81,16 +91,10 @@ var play = function () {
 	Tone.Transport.start();
 }
 
-document.querySelector('button#stop').addEventListener('click', function () {
-	Tone.Transport.stop().cancel();
-	synth.releaseAll();
-});
+document.querySelector('button#stop').addEventListener('click', stop);
 
-document.querySelector('button#startApp').addEventListener('click', async () => {
+document.querySelector('button#start').addEventListener('click', async () => {
 	await Tone.start();
 	play();
-});
-
-document.querySelector('button#start').addEventListener('click', function () {
-	play();
-});
+	document.querySelector('button#start').addEventListener('click', play);
+}, {once: true});
