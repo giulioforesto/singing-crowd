@@ -1,19 +1,26 @@
 var n = [], v = [], voices = [];
-n[0] = Math.floor(Math.random()*4);
-n[1] = Math.floor(Math.random()*4);
-v[0] = Math.floor(Math.random()*3+1);
-v[1] = Math.floor(Math.random()*3+1);
-voices[0] = Math.floor(Math.random()*15+1);
-voices[1] = Math.floor(Math.random()*15+1);
 
-var code = ''+n[0]+v[0]+voices[0]+'.'+n[1]+v[1]+voices[1];
+var generateNew = function (nn, vv, vo) {
+	nn[0] = Math.floor(Math.random()*4);
+	nn[1] = Math.floor(Math.random()*4);
+	vv[0] = Math.floor(Math.random()*3+1);
+	vv[1] = Math.floor(Math.random()*3+1);
+	vo[0] = 2**Math.floor(Math.random()*5);
+	vo[1] = 2**Math.floor(Math.random()*5);
+	document.querySelector('div#code').innerText = ''+n[0]+v[0]+voices[0]+'.'+n[1]+v[1]+voices[1];
+}
 
-document.querySelector('div#code').innerText = code;
+generateNew(n, v, voices);
 
 var synth = [];
 synth[0] = new Tone.PolySynth().toDestination().sync();
 synth[1] = new Tone.PolySynth().toDestination().sync();
 synth[0].maxPolyphony = synth[1].maxPolyphony = 256;
+
+var next = function () {
+	stop();
+	generateNew(n, v, voices);
+}
 
 var stop = function () {
 	Tone.Transport.stop().cancel();
@@ -63,17 +70,17 @@ var play = function (k) {
 	var ST = 1.05946309436;
 
 	// semitone multiplier
-	var n = 1;
+	var nk = n[k];
 
 	// frequency maximum variation
-	var fr = Math.pow(ST,n);
+	var fr = Math.pow(ST,nk);
 
 	// variance index
 	// https://riptutorial.com/javascript/example/8330/random--with-gaussian-distribution
-	var v = 1;
+	var vk = v[k];
 
 	// number of voices
-	var voices = 5;
+	var voicesk = voices[k];
 
 	// simili-gaussian random generator
 	function randomG(vv){
@@ -89,8 +96,8 @@ var play = function (k) {
 	  if (origNotes[i] == origNotes[i+1]) {
 	  	duration *= 0.6;
 	  }
-	  for (j = 0; j < voices; j++) {
-	    let d = (randomG(v)-0.5)*2*(fr-1);
+	  for (j = 0; j < voicesk; j++) {
+	    let d = (randomG(vk)-0.5)*2*(fr-1);
 	    let r;
 	    if (d<0) {
 	      r = 1/(-d+1);
@@ -105,6 +112,8 @@ var play = function (k) {
 
 document.querySelector('button#stop0').addEventListener('click', stop);
 document.querySelector('button#stop1').addEventListener('click', stop);
+
+document.querySelector('button#next').addEventListener('click', next);
 
 document.querySelector('button#start0').addEventListener('click', async () => {
 	await Tone.start();

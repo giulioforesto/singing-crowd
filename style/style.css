@@ -13,13 +13,24 @@ div#content {
 }
 table {
   margin: auto;
+  font-size: 22px;
 }
 th, td {
   text-align: center;
   padding-left: 6px;
   padding-right: 6px;
 }
+button {
+  font-size: 15px;
+}
 div#code {
   width: 100%;
   text-align: center;
+}
+p#instructions-next {
+  font-size: 70%;
+}
+div#next {
+  display: flex;
+  justify-content: center;
 }
