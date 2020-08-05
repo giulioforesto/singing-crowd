@@ -5,7 +5,7 @@ Selon vous, lequel de ces deux enregistrement sonne le plus juste ?
 
 |                                 1                                  |                                 2                                  |
 |:------------------------------------------------------------------:|:------------------------------------------------------------------:|
-| <button id="start1">Start</button><button id="stop1">Stop</button> | <button id="start2">Start</button><button id="stop2">Stop</button> |
+| <button id="start0">Start</button><button id="stop0">Stop</button> | <button id="start1">Start</button><button id="stop1">Stop</button> |
 
 Merci de renseigner ci-dessous le code de l'essai : <span id="code"></span>
 
