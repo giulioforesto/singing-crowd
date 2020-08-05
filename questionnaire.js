@@ -1,4 +1,4 @@
-document.querySelector('div#code').value = "123.123"
+document.querySelector('span#code').value = "123.123"
 
 var synth = new Tone.PolySynth().toDestination().sync();
 synth.maxPolyphony = 256;
