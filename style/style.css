@@ -1,0 +1,25 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://ssl.gstatic.com/docs/script/css/add-ons1.css';
+
+body {
+  font-family: "Open Sans";
+  font-size: 22px;
+  line-height: 110%;
+  margin-top: 44px;
+}
+div#content {
+  width: 600px;
+  margin: auto;
+}
+table {
+  margin: auto;
+}
+th, td {
+  text-align: center;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+div#code {
+  width: 100%;
+  text-align: center;
+}

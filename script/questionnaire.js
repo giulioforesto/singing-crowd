@@ -8,7 +8,7 @@ voices[1] = Math.floor(Math.random()*15+1);
 
 var code = ''+n[0]+v[0]+voices[0]+'.'+n[1]+v[1]+voices[1];
 
-document.querySelector('code#code').innerText = code;
+document.querySelector('div#code').innerText = code;
 
 var synth = [];
 synth[0] = new Tone.PolySynth().toDestination().sync();
