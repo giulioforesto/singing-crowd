@@ -1,8 +1,18 @@
-document.querySelector('span#code').innerText = "123.123"
+var n = [], v = [], voices = [];
+n[0] = Math.floor(Math.random()*4);
+n[1] = Math.floor(Math.random()*4);
+v[0] = Math.floor(Math.random()*3+1);
+v[1] = Math.floor(Math.random()*3+1);
+voices[0] = Math.floor(Math.random()*15+1);
+voices[1] = Math.floor(Math.random()*15+1);
+
+var code = ''+n[0]+v[0]+voices[0]+'.'+n[1]+v[1]+voices[1];
+
+document.querySelector('code#code').innerText = code;
 
 var synth = [];
-var synth[0] = new Tone.PolySynth().toDestination().sync();
-var synth[1] = new Tone.PolySynth().toDestination().sync();
+synth[0] = new Tone.PolySynth().toDestination().sync();
+synth[1] = new Tone.PolySynth().toDestination().sync();
 synth[0].maxPolyphony = synth[1].maxPolyphony = 256;
 
 var stop = function () {
@@ -99,11 +109,11 @@ document.querySelector('button#stop1').addEventListener('click', stop);
 document.querySelector('button#start0').addEventListener('click', async () => {
 	await Tone.start();
 	play(0);
-	document.querySelector('button#start0').addEventListener('click', play);
+	document.querySelector('button#start0').addEventListener('click', function () {play(0)});
 }, {once: true});
 
 document.querySelector('button#start1').addEventListener('click', async () => {
 	await Tone.start();
 	play(1);
-	document.querySelector('button#start1').addEventListener('click', play);
+	document.querySelector('button#start1').addEventListener('click', function () {play(1)});
 }, {once: true});
