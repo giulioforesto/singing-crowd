@@ -12,11 +12,14 @@ var Sound = function () {
 
   this.generateNew = function () {
   	this.n[0] = Math.floor(Math.random()*4);
-  	this.n[1] = Math.floor(Math.random()*4);
-  	this.v[0] = Math.floor(Math.random()*3+1);
-  	this.v[1] = Math.floor(Math.random()*3+1);
-  	this.vo[0] = 2**Math.floor(Math.random()*5);
-  	this.vo[1] = 2**Math.floor(Math.random()*5);
+  	this.n[1] = this.n[0];
+    var ind = this.n[0] ? Math.floor(Math.random()*2) : 1; // 0: v is variating; 1: vo is variating
+    this.v[0] = this.v[1] = Math.floor(Math.random()*3+1);
+    this.vo[0] = this.vo[1] = 2**Math.floor(Math.random()*5);
+    while (this.v[0] == this.v[1] && this.vo[0] == this.vo[1]) {
+    	this.v[1] = ind ? this.v[0] : Math.floor(Math.random()*3+1);
+      this.vo[1] = ind ? 2**Math.floor(Math.random()*5) : this.vo[0];
+    }
     return ''+this.n[0]+this.v[0]+this.vo[0]+'.'+this.n[1]+this.v[1]+this.vo[1];
   }
 
