@@ -23,6 +23,8 @@ We play with the well known *Happy birthday* song with one or several voices. At
 
 The test consists of hearing two recordings and tell which one sounds better. The two recordings have the same randomly defined range, and the same randomly defined distribution or number of voices, with a different, respectively, number of voices or distribution.
 
+[Answer the test!](https://giulioforesto.github.io/singing-crowd/index.html) [FR]
+
 ## Dev
 ### Build
 * Build dependencies
