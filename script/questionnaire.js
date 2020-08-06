@@ -12,6 +12,7 @@ var next = function () {
 // calls next after form submission (form loads once at new form call and once at submission)
 var loadCounter = 0;
 document.querySelector('iframe').onload = function () {
+	stop();
 	loadCounter++;
 	if (loadCounter % 2 == 1) {
 		next();
