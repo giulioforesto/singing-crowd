@@ -19,6 +19,8 @@ So the question is: **does a crowd sing better than single individuals even with
 ## Pitch test
 We play with the well known *Happy birthday* song with one or several voices. At each note, for each voice, we disturb its frequency randomly higher or lower in a given range and with a given distribution. All voices and all notes, for a given recording, have the same range and distribution.
 
+![available distributions missing!](img/distributions.png "Available distributions")
+
 The test consists of hearing two recordings and tell which one sounds better. The two recordings have the same randomly defined range, and the same randomly defined distribution or number of voices, with a different, respectively, number of voices or distribution.
 
 ## Dev
