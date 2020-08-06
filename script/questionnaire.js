@@ -1,3 +1,8 @@
+var synth = [];
+synth[0] = new Tone.PolySynth().toDestination().sync();
+synth[1] = new Tone.PolySynth().toDestination().sync();
+synth[0].maxPolyphony = synth[1].maxPolyphony = 256;
+
 var n = [], v = [], voices = [];
 
 var generateNew = function (nn, vv, vo) {
@@ -10,22 +15,23 @@ var generateNew = function (nn, vv, vo) {
 	document.querySelector('div#code').innerText = ''+n[0]+v[0]+voices[0]+'.'+n[1]+v[1]+voices[1];
 }
 
-generateNew(n, v, voices);
-
-var synth = [];
-synth[0] = new Tone.PolySynth().toDestination().sync();
-synth[1] = new Tone.PolySynth().toDestination().sync();
-synth[0].maxPolyphony = synth[1].maxPolyphony = 256;
+var stop = function () {
+	Tone.Transport.stop().cancel();
+	synth[0].releaseAll();
+	synth[1].releaseAll();
+}
 
 var next = function () {
 	stop();
 	generateNew(n, v, voices);
 }
 
-var stop = function () {
-	Tone.Transport.stop().cancel();
-	synth[0].releaseAll();
-	synth[1].releaseAll();
+var loadCounter = 0;
+document.querySelector('iframe').onload = function () {
+	loadCounter++;
+	if (loadCounter % 2 == 1) {
+		next();
+	}
 }
 
 var play = function (k) {
@@ -112,8 +118,6 @@ var play = function (k) {
 
 document.querySelector('button#stop0').addEventListener('click', stop);
 document.querySelector('button#stop1').addEventListener('click', stop);
-
-document.querySelector('button#next').addEventListener('click', next);
 
 document.querySelector('button#start0').addEventListener('click', async () => {
 	await Tone.start();
