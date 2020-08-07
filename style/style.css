@@ -6,14 +6,9 @@ body {
   font-size: 22px;
   line-height: 110%;
   margin-top: 44px;
-  margin-bottom: 20px;
-  text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 div#content {
-  width: 600px;
+  width: 650px;
   margin: auto;
 }
 table {
@@ -32,6 +27,19 @@ div#code {
   width: 100%;
   text-align: center;
 }
+.tab {
+  position: relative;
+}
+.one {
+  width: 50%;
+  position:absolute;
+  left:0px;
+  margin-bottom: 20px;
+}
 .two {
-  float: right;
+  width: 50%;
+  position:absolute;
+  right:0px;
+  text-align:right;
+  margin-bottom: 20px;
 }
