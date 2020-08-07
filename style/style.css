@@ -52,7 +52,10 @@ div#code {
 }
 
 @media only screen and (max-device-width: 1024px) {
-  body, table, button {
+  body, table {
     font-size: 150%;
+  }
+  button {
+    font-size: 100%;
   }
 }
