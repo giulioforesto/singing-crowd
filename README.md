@@ -12,7 +12,7 @@ Let's forget about the first explanation, and try to explain why, even with peop
 
 For a higher number of people (actually ≥5), the density distribution of the frequencies can bring back a physical consideration: if most of the sound power concentrates tightly enough around the right frequency (let's call it acceptability range), the ratio `signal / noise` (noise consists of the signals outside the acceptability range) will be high enough to make it a pretty good note. This explanation can simply be summarized with the following: there are still more people singing well than people singing bad, so the latter won't spoil the result.
 
-Though, if the distribution is uniform, this won't happen.
+Though, if the distribution is uniform, this won't happen. The second explanation given by the video does not mention the distribution and the possibility that there are more good singers than bad singers (or put differently: that the effective frequencies are concentrated around the right note with a gaussian-like distribution, and not simply uniformly).
 
 So the question is: **does a crowd sing better than single individuals even with a uniform distribution?** If yes, is the difference of quality comparable with the improvement given by a concentration of good singers?
 
