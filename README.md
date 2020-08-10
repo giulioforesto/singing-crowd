@@ -4,7 +4,7 @@ As shown by [this video](https://youtu.be/lWFq8uILaq4) [FR] from the YouTube cha
 
 In the video, two possible explanations are given:
 * the bad singers adapt while hearing the good singers and sing better;
-* even with bad singers in the crowd (which we can here by coming closer to individuals), there's a kind of *audition illusion* of our brain that interprets the right note when it hears many notes around it.
+* even with bad singers in the crowd (which we can hear by coming closer to individuals), there's a kind of *audition illusion* of our brain that interprets the right note when it hears many notes around it.
 
 Let's forget about the first explanation, and try to explain why, even with people singing effectively bad, the crowd is in tune.
 
@@ -14,10 +14,10 @@ For a higher number of people (actually ≥5), the density distribution of the f
 
 Though, if the distribution is uniform, this won't happen.
 
-So the question is: **does a crowd sing better than single individuals even with a uniform distribution?** If yes, is the difference of quality comparable with the improvement given a slight concentration of good singers?
+So the question is: **does a crowd sing better than single individuals even with a uniform distribution?** If yes, is the difference of quality comparable with the improvement given by a concentration of good singers?
 
 ## Pitch test
-We play with the well known *Happy birthday* song with one or several voices. At each note, for each voice, we disturb its frequency randomly higher or lower in a given range and with a given distribution. All voices and all notes, for a given recording, have the same range and distribution.
+We play the well known *Happy birthday* song with one or several voices. At each note, for each voice, we disturb its frequency randomly higher or lower in a given range and with a given distribution. All voices and all notes, for a given recording, have the same range and distribution.
 
 ![available distributions missing!](img/distributions.png "Available distributions")
 
